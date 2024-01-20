@@ -1,0 +1,36 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: fiap-lanches-payment-api
+  name: fiap-lanches-payment-api
+  namespace: fiap-lanches-api
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: fiap-lanches-payment-api
+  template:
+    metadata:
+      labels:
+        app: fiap-lanches-payment-api
+      name: fiap-lanches-payment-api
+    spec:
+      containers:
+        - image: docker.io/dalexandrias/fiap-lanches-payment-app:latest
+          imagePullPolicy: IfNotPresent
+          name: fiap-lanches-payment-api
+          ports:
+            - containerPort: 8085
+              protocol: TCP
+          envFrom:
+            - configMapRef:
+                name: fiap-lanches-payment-config
+          env:
+            - name: SPRING_DATASOURCE_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  key: password
+                  name: fiap-lanches-payment-secrets
+                  optional: false
+      restartPolicy: Always

@@ -1,0 +1,38 @@
+version: '3.8'
+
+services:
+  postgres-db:
+    image: postgres
+    environment:
+      POSTGRES_USER: admin
+      POSTGRES_PASSWORD: admin123
+      POSTGRES_DB: fiap-lanches-payment
+    ports:
+      - "5435:5432"
+    volumes:
+      - postgres-db:/var/lib/postgresql/data
+    networks:
+      - fiap-lanchonete-network
+        
+#  fiap-lanches-order-api:
+#    build:
+#      context: .
+#      dockerfile: ./Dockerfile
+#    ports:
+#      - 8080:8080
+#    volumes:
+#      - fiap-lancher:/var/lib/fiaplancher/data
+#    depends_on:
+#      - postgres-db
+#    networks:
+#      - fiap-lanchonete-network
+
+networks:
+  fiap-lanchonete-network:
+    driver: bridge
+
+volumes:
+  postgres-db:
+    driver: local
+  fiap-lancher:
+    driver: local

@@ -1,2 +1,2 @@
-# pagamento-fiaplanches
-Serviço responsável pelos pagamentos Da Lanchonete FiapLanches
+# fiap-lanches-payment
+# fiap-lanches-payment

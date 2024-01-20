@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: fiap-lanches-payment-config
+  namespace: fiap-lanches-api
+  labels:
+    app: postgres
+data:
+  POSTGRES_DB: fiaplanches
+  SPRING_DATASOURCE_USERNAME: admin
+  SPRING_JPA_HIBERNATE_DDL_AUTO: create
+  SPRING_DATASOURCE_URL: jdbc:postgresql://postgres-svc:5432/fiaplanches?useSSL=false
+  WEBHOOK_URL: http://webhook-api-svc:8081
