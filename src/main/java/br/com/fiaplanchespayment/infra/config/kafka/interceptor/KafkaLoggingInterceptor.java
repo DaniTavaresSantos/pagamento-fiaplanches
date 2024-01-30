@@ -1,4 +1,4 @@
-package br.com.fiaplanchespayment.infra.config.kafka;
+package br.com.fiaplanchespayment.infra.config.kafka.interceptor;
 
 import lombok.extern.slf4j.Slf4j;
 import org.apache.kafka.clients.consumer.ConsumerInterceptor;

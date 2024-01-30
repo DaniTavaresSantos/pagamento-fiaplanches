@@ -15,7 +15,7 @@ spring:
       ddl-auto: ${SPRING_JPA_HIBERNATE_DDL_AUTO:create}
   kafka:
     producer:
-      bootstrap-servers: localhost:9092
+      bootstrap-servers: ${SPRING_KAFKA_BOOTSTRAP_SERVERS:localhost:9092}
       key-serializer: org.apache.kafka.common.serialization.StringSerializer
       value-serializer: org.springframework.kafka.support.serializer.JsonSerializer
 # Pode ser usado para consumir apenas em um topic
@@ -29,6 +29,6 @@ spring:
 kafka:
   topic:
     producer:
-      name: fiap-lanches-payment
+      name: fiap-lanches-order
     consumer:
       name: fiap-lanches-payment

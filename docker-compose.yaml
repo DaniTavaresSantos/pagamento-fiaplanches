@@ -1,7 +1,7 @@
 version: '3.8'
 
 services:
-  postgres-db:
+  postgres-db-payment:
     image: postgres
     environment:
       POSTGRES_USER: admin
@@ -12,24 +12,24 @@ services:
     volumes:
       - postgres-db:/var/lib/postgresql/data
     networks:
-      - fiap-lanchonete-network
+      - fiap-lanchonet-network
         
-#  fiap-lanches-order-api:
-#    build:
-#      context: .
-#      dockerfile: ./Dockerfile
-#    ports:
-#      - 8080:8080
-#    volumes:
-#      - fiap-lancher:/var/lib/fiaplancher/data
-#    depends_on:
-#      - postgres-db
-#    networks:
-#      - fiap-lanchonete-network
+  fiap-lanches-payment-api:
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+    ports:
+      - "8084:8084"
+    volumes:
+      - fiap-lancher:/var/lib/fiaplancher/data
+    depends_on:
+      - postgres-db-payment
+    networks:
+      - fiap-lanchonet-network
 
 networks:
-  fiap-lanchonete-network:
-    driver: bridge
+  fiap-lanchonet-network:
+    external: true
 
 volumes:
   postgres-db:

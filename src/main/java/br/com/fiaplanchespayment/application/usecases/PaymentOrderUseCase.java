@@ -2,6 +2,7 @@ package br.com.fiaplanchespayment.application.usecases;
 
 import br.com.fiaplanchespayment.application.dtos.PaymentDto;
 import br.com.fiaplanchespayment.application.dtos.PaymentOrderDto;
+import br.com.fiaplanchespayment.application.dtos.UpdatePaymentOrderDto;
 import br.com.fiaplanchespayment.application.ports.in.PaymentOrderPortIn;
 import br.com.fiaplanchespayment.application.ports.out.NotifyPaymentTopicPortOut;
 import br.com.fiaplanchespayment.application.ports.out.PaymentRepositoryPortOut;
@@ -35,7 +36,12 @@ public class PaymentOrderUseCase implements PaymentOrderPortIn {
         );
 
         PaymentDto paymentDtoSaved = paymentRepositoryPortOut.save(paymentDto);
-        notifyPaymentTopicPortOut.notifyPaymentOrder(paymentDtoSaved);
+
+        UpdatePaymentOrderDto updatePaymentOrderDto = new UpdatePaymentOrderDto(
+                paymentDtoSaved.orderId(),
+                paymentDtoSaved.status()
+        );
+        notifyPaymentTopicPortOut.notifyPaymentOrder(updatePaymentOrderDto);
         log.info("Pagamento do pedido executado com sucesso");
     }
 }
