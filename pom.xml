@@ -14,9 +14,11 @@
     <name>fiap-lanches-payment</name>
     <description>fiap-lanches-payment</description>
     <properties>
-        <java.version>17</java.version>
-        <org.mapstruct.version>1.5.5.Final</org.mapstruct.version>
-        <org.projectlombok.version>1.18.30</org.projectlombok.version>
+         <java.version>17</java.version>
+         <org.mapstruct.version>1.5.5.Final</org.mapstruct.version>
+         <org.projectlombok.version>1.18.30</org.projectlombok.version>
+         <sonar.organization>danitavaressantos</sonar.organization>
+         <sonar.host.url>https://sonarcloud.io</sonar.host.url>
     </properties>
 
     <dependencies>
