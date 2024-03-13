@@ -32,3 +32,9 @@ kafka:
       name: fiap-lanches-order
     consumer:
       name: fiap-lanches-payment
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health
