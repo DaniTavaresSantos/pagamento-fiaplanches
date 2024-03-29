@@ -1,4 +1,4 @@
-FROM maven:latest
+FROM maven:3.9.6-eclipse-temurin-17-alpine
 
 ENV SPRING_DATASOURCE_URL=jdbc:postgresql://postgres-db-payment:5432/fiap-lanches-payment
 ENV SPRING_KAFKA_BOOTSTRAP_SERVERS=kafka1:19091
