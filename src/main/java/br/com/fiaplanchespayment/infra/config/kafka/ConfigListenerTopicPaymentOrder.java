@@ -20,7 +20,7 @@ import java.util.Map;
 @Configuration
 public class ConfigListenerTopicPaymentOrder {
 
-    @Value("${spring.kafka.producer.bootstrap-servers}")
+    @Value("${spring.kafka.consumer.bootstrap-servers}")
     private String bootstrapServers;
 
     @Bean
