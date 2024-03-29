@@ -4,6 +4,7 @@ import br.com.fiaplanchespayment.application.dtos.PaymentOrderDto;
 import br.com.fiaplanchespayment.application.dtos.UpdatePaymentOrderDto;
 import br.com.fiaplanchespayment.application.ports.out.NotifyPaymentTopicPortOut;
 import br.com.fiaplanchespayment.domain.enums.OrderStatus;
+import lombok.Generated;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.retry.annotation.Backoff;
 import org.springframework.retry.annotation.Recover;
@@ -11,6 +12,7 @@ import org.springframework.retry.annotation.Retryable;
 import org.springframework.stereotype.Service;
 
 import java.util.Random;
+@Generated
 @Service
 @Slf4j
 public class PaymentValidatorImpl implements PaymentValidatorPort {

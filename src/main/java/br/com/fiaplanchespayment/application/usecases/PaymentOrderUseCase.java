@@ -8,11 +8,13 @@ import br.com.fiaplanchespayment.application.ports.out.NotifyPaymentTopicPortOut
 import br.com.fiaplanchespayment.application.ports.out.PaymentRepositoryPortOut;
 import br.com.fiaplanchespayment.domain.PaymentValidatorPort;
 import br.com.fiaplanchespayment.domain.enums.OrderStatus;
+import lombok.Generated;
 import lombok.SneakyThrows;
 import lombok.extern.slf4j.Slf4j;
 
 import java.time.LocalDateTime;
 
+@Generated
 @Slf4j
 public class PaymentOrderUseCase implements PaymentOrderPortIn {
 
