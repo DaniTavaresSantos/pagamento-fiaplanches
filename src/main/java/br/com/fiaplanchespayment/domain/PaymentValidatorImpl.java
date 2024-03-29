@@ -4,6 +4,7 @@ import br.com.fiaplanchespayment.application.dtos.PaymentOrderDto;
 import br.com.fiaplanchespayment.application.dtos.UpdatePaymentOrderDto;
 import br.com.fiaplanchespayment.application.ports.out.NotifyPaymentTopicPortOut;
 import br.com.fiaplanchespayment.domain.enums.OrderStatus;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.retry.annotation.Backoff;
 import org.springframework.retry.annotation.Recover;
 import org.springframework.retry.annotation.Retryable;
@@ -11,6 +12,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.Random;
 @Service
+@Slf4j
 public class PaymentValidatorImpl implements PaymentValidatorPort {
     private static final String[] ERROR_MESSAGES = {
             "Insufficient funds",
@@ -31,6 +33,8 @@ public class PaymentValidatorImpl implements PaymentValidatorPort {
         int chance = random.nextInt(100);
         if (chance <= 15) {
             int messageIndex = random.nextInt(ERROR_MESSAGES.length);
+            log.info("Pagamento do pedido rejeitado. Motivo: {}", ERROR_MESSAGES[messageIndex]);
+            log.info("Tentando novamente...");
             throw new Exception(ERROR_MESSAGES[messageIndex]);
         }
         return true;
