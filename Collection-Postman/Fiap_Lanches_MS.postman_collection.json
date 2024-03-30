@@ -1,0 +1,510 @@
+{
+	"info": {
+		"_postman_id": "9208f23b-a682-4506-8285-6bbe0b80fc45",
+		"name": "Fiap Lanches MS",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "17470774"
+	},
+	"item": [
+		{
+			"name": "client",
+			"item": [
+				{
+					"name": "findCPF",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{conta-gtw}}/v1/client/find/40859526844",
+							"host": [
+								"{{conta-gtw}}"
+							],
+							"path": [
+								"v1",
+								"client",
+								"find",
+								"40859526844"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "createClient",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"cpf\": 40859526844,\r\n    \"nome\":\"Davi\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{conta-gtw}}/v1/client/create",
+							"host": [
+								"{{conta-gtw}}"
+							],
+							"path": [
+								"v1",
+								"client",
+								"create"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "updateClient",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"cpf\": 40859526844,\r\n    \"nome\":\"Carla\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://{{fiap-lanches}}:8085/v1/client/update",
+							"protocol": "http",
+							"host": [
+								"{{fiap-lanches}}"
+							],
+							"port": "8085",
+							"path": [
+								"v1",
+								"client",
+								"update"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "health",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://{{prod}}:8085/actuator/health",
+							"protocol": "http",
+							"host": [
+								"{{prod}}"
+							],
+							"port": "8085",
+							"path": [
+								"actuator",
+								"health"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Order",
+			"item": [
+				{
+					"name": "createOrder",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"cpf\": \"40859526844\",\r\n    \"produtos\": [2, 1, 10, 7, 8, 14]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{order-gtw}}/v1/order/create-order",
+							"host": [
+								"{{order-gtw}}"
+							],
+							"path": [
+								"v1",
+								"order",
+								"create-order"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "findOrderByCpf",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{order-gtw}}/v1/order/find/40859526844",
+							"host": [
+								"{{order-gtw}}"
+							],
+							"path": [
+								"v1",
+								"order",
+								"find",
+								"40859526844"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "findOrderByStatus",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "// RECEBIDO,\r\n//     EM_PREPARO,\r\n//     PRONTO,\r\n//     FINALIZADO,\r\n//     PAGAMENTO_PENDENTE,\r\n//     PAGAMENTO_APROVADO,\r\n//     PAGAMENTO_REJEITADO,\r\n//     PAGAMENTO_CANCELADO,\r\n//     NO_CARRINHO,\r\n//     PRONTO_PRA_PAGAMENTO",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://{{fiap-lanches}}:8081/v1/order/find/status/PAGAMENTO_APROVADO",
+							"protocol": "http",
+							"host": [
+								"{{fiap-lanches}}"
+							],
+							"port": "8081",
+							"path": [
+								"v1",
+								"order",
+								"find",
+								"status",
+								"PAGAMENTO_APROVADO"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "updateOrder",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"order\": 9,\r\n    \"products\": [1, 2, 4]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{order-gtw}}/v1/order/update-order",
+							"host": [
+								"{{order-gtw}}"
+							],
+							"path": [
+								"v1",
+								"order",
+								"update-order"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "findOrderOrdered",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{order-gtw}}/v1/order/ordered",
+							"host": [
+								"{{order-gtw}}"
+							],
+							"path": [
+								"v1",
+								"order",
+								"ordered"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "payOrder",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"orderId\": 5,\r\n    \"paymentMethod\": \"QR_CODE\"\r\n}\r\n// CREDIT_CARD\r\n// DEBIT_CARD\r\n// PIX\r\n// QR_CODE",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{order-gtw}}/v1/order/pay-order",
+							"host": [
+								"{{order-gtw}}"
+							],
+							"path": [
+								"v1",
+								"order",
+								"pay-order"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "product",
+			"item": [
+				{
+					"name": "findByCategory",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{product-gtw}}/v1/product/find/SOBREMESA",
+							"host": [
+								"{{product-gtw}}"
+							],
+							"path": [
+								"v1",
+								"product",
+								"find",
+								"SOBREMESA"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "findByIds",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{product-gtw}}/v1/product/find?ids=2&ids=10",
+							"host": [
+								"{{product-gtw}}"
+							],
+							"path": [
+								"v1",
+								"product",
+								"find"
+							],
+							"query": [
+								{
+									"key": "ids",
+									"value": "16",
+									"disabled": true
+								},
+								{
+									"key": "ids",
+									"value": "17",
+									"disabled": true
+								},
+								{
+									"key": "ids",
+									"value": "2"
+								},
+								{
+									"key": "ids",
+									"value": "10"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "register",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nameProduct\":\"Onion\",\r\n    \"price\": 15.99,\r\n    \"category\":\"ACOMPANHAMENTO\"\r\n}\r\n// LANCHE\r\n// ACOMPANHAMENTO\r\n// BEBIDA\r\n// SOBREMESA",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{product-gtw}}/v1/product/register",
+							"host": [
+								"{{product-gtw}}"
+							],
+							"path": [
+								"v1",
+								"product",
+								"register"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "health",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://{{prod}}:8082/actuator/health",
+							"protocol": "http",
+							"host": [
+								"{{prod}}"
+							],
+							"port": "8082",
+							"path": [
+								"actuator",
+								"health"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Atualiza Produto",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nameProduct\": \"Sorvete Morango\",\r\n    \"price\": 8.99,\r\n    \"category\": \"SOBREMESA\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{product-gtw}}/v1/product/update/10",
+							"host": [
+								"{{product-gtw}}"
+							],
+							"path": [
+								"v1",
+								"product",
+								"update",
+								"10"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Admin",
+			"item": [
+				{
+					"name": "findOrderPending",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{kitchen-gtw}}/v1/admin/find/order/pending",
+							"host": [
+								"{{kitchen-gtw}}"
+							],
+							"path": [
+								"v1",
+								"admin",
+								"find",
+								"order",
+								"pending"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "updateOrderStatus",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"orderId\": 3,\r\n    \"status\": \"RECEBIDO\"\r\n}\r\n// RECEBIDO\r\n// EM_PREPARO\r\n// PRONTO\r\n// FINALIZADO\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{kitchen-gtw}}/v1/admin/update/order/status",
+							"host": [
+								"{{kitchen-gtw}}"
+							],
+							"path": [
+								"v1",
+								"admin",
+								"update",
+								"order",
+								"status"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "token",
+			"item": [
+				{
+					"name": "getToken",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://laoe39jpj4.execute-api.us-east-1.amazonaws.com/esteira/auth",
+							"protocol": "https",
+							"host": [
+								"laoe39jpj4",
+								"execute-api",
+								"us-east-1",
+								"amazonaws",
+								"com"
+							],
+							"path": [
+								"esteira",
+								"auth"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
