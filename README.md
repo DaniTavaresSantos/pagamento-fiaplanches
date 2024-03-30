@@ -20,9 +20,9 @@ Para executar o projeto localmente, siga as instruções abaixo:
 
 Isso iniciará os containers necessários para executar a aplicação.
 
-## Para testar a funcionalidade da aplicação, basta utilizar a collection do Postman localizada na pasta: Collection-Postman, na raíz do projeto.
+## Para testar a funcionalidade da aplicação, basta utilizar a collection do Postman localizada na pasta: [Collection-Postman](/Collection-Postman), na raíz do projeto.
 
-## Importe também o Environment também localizado na pasta: Collection-Postman.
+## Importe também o Environment também localizado na pasta:.
 
 ## Ordem do caminho feliz a partir dos endpoints do postman:
 
@@ -38,4 +38,11 @@ https://github.com/DaniTavaresSantos/cozinha-fiaplanches
 https://github.com/DaniTavaresSantos/conta-fiaplanches
 https://github.com/dalexandrias/fiap-lanches-infra
 https://github.com/DaniTavaresSantos/lambda-fiaplanches
+
+## [Link do Google Drive contendo:](https://drive.google.com/drive/folders/16FyAlEpgWNXZFDkoz_PccqhihvkOUAfx?usp=drive_link)
+- Justificativa Saga
+- Relatorio RIPD
+- Relatórios OWASP - ZAP
+- Desenho Arquitetura do Projeto
+
 
